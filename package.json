@@ -1,0 +1,28 @@
+{
+  "name": "ex2b",
+  "version": "1.0.0",
+  "description": "Movie website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ahmadsh64/ex2b.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ahmadsh64/ex2b/issues"
+  },
+  "homepage": "https://github.com/Ahmadsh64/ex2b#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "multer": "^2.0.1",
+    "sqlite3": "^5.1.7"
+  }
+}
