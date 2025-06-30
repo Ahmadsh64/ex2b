@@ -34,23 +34,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
             document.getElementById("scorePercent").textContent = `${film.Score}%`;
 
-            const half = Math.ceil(reviews.length / 2);
-            const leftColumn = document.getElementById("leftColumn");
-            const rightColumn = document.getElementById("rightColumn");
+            const reviewsDiv = document.getElementById("reviews");
+            reviews.forEach((review) => {
+                const reviewContainer = document.createElement("div");
+                reviewContainer.className = "review";
 
-            reviews.forEach((review, index) => {
-                const column = index < half ? leftColumn : rightColumn;
+                const quote = document.createElement("p");
+                quote.className = "quote";
+                quote.innerHTML = `<img src="${film.Score >= 60 ? '/fresh.gif' : '/rotten.gif'}" alt="review" />
+                                   <q>${review.ReviewText}</q>`;
+                reviewContainer.appendChild(quote);
 
-                const quoteBox = document.createElement("p");
-                quoteBox.className = "quoteBox";
-                quoteBox.innerHTML = `<img src="${film.Score >= 60 ? '/fresh.gif' : '/rotten.gif'}" alt="review" />
-                                       <q>${review.ReviewText}</q>`;
-                column.appendChild(quoteBox);
+                const author = document.createElement("p");
+                author.className = "author";
+                author.innerHTML = `<img src="/critic.gif" alt="Critic" /> ${review.ReviewerName}<br>${review.Affiliation}`;
+                reviewContainer.appendChild(author);
 
-                const authorBox = document.createElement("p");
-                authorBox.className = "authorBox";
-                authorBox.innerHTML = `<img src="/critic.gif" alt="Critic" />${review.ReviewerName}<br>${review.Affiliation}`;
-                column.appendChild(authorBox);
+                reviewsDiv.appendChild(reviewContainer);
             });
 
             document.getElementById("entriesCount").textContent = `(1-${reviews.length}) of ${reviews.length}`;
