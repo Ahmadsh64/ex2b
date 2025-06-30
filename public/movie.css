@@ -153,10 +153,36 @@ dt {
     text-align: center;
     text-shadow: 2px 2px #999999;
 }
-
+/* Reviews */
 #reviews {
     width: 550px;
+    margin: 0 auto;
 }
+
+.review {
+    background-color: #E3DAA3;
+    border: 2px solid gray;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 8px;
+    padding: 8px;
+}
+
+.review img {
+    float: left;
+    padding: 5px;
+}
+
+.quote {
+    margin-bottom: 5px;
+}
+
+.author {
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
 /* התאמה למסכים קטנים */
 @media (max-width: 787px) {
     .movieInfo {
