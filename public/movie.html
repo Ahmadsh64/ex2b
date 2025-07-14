@@ -1,37 +1,65 @@
+<!--
+  File: movie.html
+  Authors: Ahmad Shalaata (212811244), Basel Hamza (214048019), Narmin Araideh (212845762)
+  Date: 2025-06-23
+  Description:
+    HTML template for the Rancid Tomatoes movie review page.
+    The page is dynamically populated using JavaScript with data fetched from a server API.
+    It displays the movie poster, details, score, and user reviews in a responsive layout.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Movie - Rancid Tomatoes</title>
-    <link href="movie.css" type="text/css" rel="stylesheet"/>
-    <link href="rotten.gif" type="image/gif" rel="shortcut icon">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <script src="movie.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Movie - Rancid Tomatoes</title>
+
+  <!-- CSS styling -->
+  <link rel="stylesheet" href="movie.css" type="text/css">
+
+  <!-- Favicon icon -->
+  <link rel="shortcut icon" href="rotten.gif" type="image/gif">
+
+  <!-- JavaScript that dynamically populates the page -->
+  <script src="movie.js" defer></script>
 </head>
 
 <body>
-    <div class="header">
-        <img src="banner.png" alt="Rancid Tomatoes"/>
-    </div>
+  <!-- Top banner -->
+  <div class="header">
+    <img src="banner.png" alt="Rancid Tomatoes logo">
+  </div>
 
-    <h1 id="movieTitle" class="title"></h1>
+  <!-- Movie title (dynamically filled) -->
+  <h1 id="movieTitle" class="title">Loading movie...</h1>
 
-    <div class="page">
-        <div class="movieInfo">
-            <img id="poster" src="" alt="poster" width="100%">
-            <dl id="filmDetails"></dl>
-        </div>
+  <!-- Main content layout -->
+  <div class="page">
+    <div class="mainContent">
+      <!-- Right section: poster and movie details -->
+      <div class="movieInfo">
+        <img id="poster" src="" alt="Poster image" class="poster-img">
+        <dl id="filmDetails"></dl>
+      </div>
 
+      <!-- Left section: reviews area -->
+      <div class="reviewsArea">
+        <!-- Score section -->
         <div class="headerTitle">
-            <img id="scoreImage" src="" alt="Rating"/>
-            <h1 id="scorePercent"></h1>
+          <img id="scoreImage" src="" alt="Rating image">
+          <h1 id="scorePercent">--%</h1>
         </div>
 
-        <div id="reviews"></div>
+        <!-- Movie reviews will be dynamically inserted here -->
+        <div id="reviews" class="comments"></div>
 
+        <!-- Total number of reviews -->
         <p id="entriesCount" class="entries"></p>
+      </div>
     </div>
+  </div>
 </body>
 
 </html>

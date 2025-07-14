@@ -1,26 +1,51 @@
-/* movie.css - עיצוב של הדף שמציג את הסרטים והביקורות */
+/*
+  File: movie.css
+  Authors: Ahmad Shalaata (212811244), Basel Hamza (214048019), Narmin Araideh (212845762)
+  Date: 2025-06-23
+  Description:
+    This stylesheet defines the layout and design of the Rancid Tomatoes movie review page.
+    It includes styling for the movie information panel, dynamic review display, score presentation,
+    responsiveness for mobile screens, and overall visual structure of the site.
+*/
+
  
-/* הגדרת עיצוב כללי לעמוד */
+/* === General page styling === */
 html, body {
     width: 100%;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
 }
 
 body {
-    font-family: Tahoma, Arial, Sans-serif;
+    font-family: Tahoma, Arial, sans-serif;
     font-size: 1rem;
     background: url("background.png");
 }
-/* עיצוב לתיאורים של פרטי הסרט */
+.mainContent {
+    display: flex;
+    align-items: stretch;
+    min-height: 100%;
+        flex-direction: row-reverse;
+}
+.reviewsArea {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* === Movie details section (dl, dt, dd) === */
+dl {
+    background-color: #5D8B3E;
+}
+
+dt {
+    font-weight: bold;
+}
+
 dd {
     margin-left: 3em;
     margin-bottom: 10pt;
-}
-
-dl {
-    background-color: #5D8B3E;
 }
 
 dd ul {
@@ -29,55 +54,51 @@ dd ul {
     padding: 0;
 }
 
-dt {
-    font-weight: bold;
-}
-
-.authorBox {
+/* === Author styling (critic info) === */
+.author {
     clear: left;
     font-style: italic;
     margin-bottom: 1.5rem;
-    overflow: auto;
     margin-right: 5px;
+    overflow: auto;
 }
 
-.authorBox img {
+.author img {
     float: left;
 }
 
-
-
-.comments-container{
+/* === Review grid container (flexbox for layout) === */
+.comments-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-.column{
+.column {
     flex: 1 1 45%;
     margin: 2%;
 }
 
-
+/* === Footer with review summary === */
 .entries {
     background-color: #5D8B3E;
-    bottom: 0px;
-    padding: 0.9rem;
-    position: absolute;
-    margin: 0 auto;
-    z-index: -1;
+    color: #1F1F1F;
+    padding: 0.5rem;
+    margin: 0;
     text-align: center;
-    width: 100%;
+    font-family: Calibri, sans-serif;
 }
 
+/* === Top banner === */
 .header {
     background: url("bannerbg.png");
-    height: 4rem;
     background-repeat: repeat-x;
+    height: 4rem;
     overflow: hidden;
     text-align: center;
 }
 
+/* === Score header styling (image + percent) === */
 .headerTitle {
     background: url("rbg.png");
     background-repeat: repeat-x;
@@ -98,6 +119,7 @@ dt {
     height: 90%;
 }
 
+/* === Overview section (right side with poster and metadata) === */
 .movieInfo {
     background-color: #5D8B3E;
     width: 25%;
@@ -107,6 +129,12 @@ dt {
     min-height: 100%;
 }
 
+.movieInfo img {
+    text-align: right;
+    margin: 0;
+    width: 100%;
+}
+
 .movieInfo dl {
     font-weight: bold;
     margin: 0.9rem;
@@ -114,23 +142,19 @@ dt {
     padding-right: 3px;
 }
 
-.movieInfo img {
-    text-align: right;
-    margin: 0px;
-}
-
+/* === Main content container === */
 .page {
     border: 4px solid gray;
     border-radius: 40px;
     margin: 0 auto;
     overflow: hidden;
-    padding: 0px;
+    padding: 0;
     position: relative;
     width: 90%;
-    
 }
 
-.quoteBox {
+/* === Quoted review section === */
+.quote {
     background-color: #E3DAA3;
     border: 2px solid gray;
     border-radius: 20px;
@@ -141,27 +165,13 @@ dt {
     padding: 8px;
 }
 
-.quoteBox img {
+.quote img {
     float: left;
     padding: 5px;
 }
 
-.title {
-    font-family: Verdana, Calibri, sans-serif;
-    font-size: 3rem;
-    font-weight: bold;
-    text-align: center;
-    text-shadow: 2px 2px #999999;
-}
-/* Reviews */
-#reviews {
-    width: 550px;
-    margin: 0 auto;
-}
-
+/* === Individual review container === */
 .review {
-    background-color: #E3DAA3;
-    border: 2px solid gray;
     border-radius: 20px;
     font-size: 1rem;
     font-weight: bold;
@@ -174,21 +184,30 @@ dt {
     padding: 5px;
 }
 
-.quote {
-    margin-bottom: 5px;
+/* === Container for reviews block === */
+#reviews {
+    width: 550px;
 }
 
-.author {
-    font-style: italic;
-    font-size: 0.95rem;
+/* === Movie title style === */
+.title {
+    font-family: Verdana, Calibri, sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px #999999;
 }
 
-/* התאמה למסכים קטנים */
+/* === Responsive design: small screens === */
 @media (max-width: 787px) {
-    .movieInfo {
+    .mainContent {
+        flex-direction: column;
+    }
+
+    .movieInfo,
+    .reviewsArea {
         width: 100%;
         float: none;
-        text-align: center;
     }
 
     .movieInfo img {
@@ -199,6 +218,14 @@ dt {
         text-align: left;
     }
 
+    .headerTitle {
+        text-align: left;
+    }
+.headerTitle h1 {
+    color: red;
+    display: inline;
+    font-size: 4rem;
+}
     .comments-container {
         flex-direction: column;
     }
@@ -209,6 +236,8 @@ dt {
 
     .entries {
         width: 100%;
+        position: static; /* כדי שלא יצוף באופן מוחלט במסכים קטנים */
+        margin-top: 1rem;
     }
 
     .quoteBox, .authorBox {
